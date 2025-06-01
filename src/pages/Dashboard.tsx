@@ -25,8 +25,8 @@ export default function dashboard() {
 
     return (
         <>
-         <div className="min-h-screen flex flex-col items-center justify-center px-4 py-10">
-            <div className="bg-gray-200 p-8 rounded-lg w-full max-w-2xl">
+         <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center px-4 py-10">
+            <div className="bg-gray-400 p-8 rounded-lg w-full max-w-2xl">
                 <h2 className="text-3xl font-bold text-center text-black mb-1">Data Mahasiswa</h2>
                 <p className="text-center mb-6 text-black">
                     Form Mahasiswa
@@ -51,12 +51,12 @@ export default function dashboard() {
                             value={form.nama}
                             onChange={handleChange}
                             placeholder="Masukan Nama lengkap sesuai dengan KTP"
-                            className="w-full border-p rounded text italic"
+                            className="w-full border p-2 rounded text-white text italic"
                         />
                     </div>
 
-                    <div className="flex grap-6">
-                        <label className="flex items-center">
+                    <div className="flex gap-6">
+                        <label className="flex text-black items-center">
                             <input 
                                 type="radio"
                                 name="jk"
@@ -67,7 +67,7 @@ export default function dashboard() {
                             />
                             Laki-Laki
                         </label>
-                        <label className="flex items-center">
+                        <label className="flex text-black items-center">
                             <input 
                                 type="radio"
                                 name="jk"
@@ -84,11 +84,22 @@ export default function dashboard() {
                     <div>
                         <label className="block mb-1 text-black">Tempat Lahir :</label>
                         <input 
-                            type="time"
+                            type="text"
                             name="tempatLahir"
                             value={form.tempatLahir}
                             onChange={handleChange}
-                            className="w-full border p-2 rounded text-black"
+                            className="w-full border p-2 rounded text-white"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block mb-1 text-black">Tanggal Lahir :</label>
+                        <input 
+                            type="date"
+                            name="tempatLahir"
+                            value={form.tempatLahir}
+                            onChange={handleChange}
+                            className="w-full border p-2 rounded text-white"
                         />
                     </div>
 
@@ -111,7 +122,7 @@ export default function dashboard() {
                             name="agama"
                             value={form.agama}
                             onChange={handleChange}
-                            className="w-full border p-rounded text-black"
+                            className="w-full border p-rounded text-white"
                                                 
                         >
                             <option value="">-- Pilih Agama --</option>
@@ -132,7 +143,7 @@ export default function dashboard() {
                             name="prodi"
                             value={form.prodi}
                             onChange={handleChange}
-                            className="w-full border p-rounded text-black"
+                            className="w-full border p-rounded text-white"
                                                 
                         >
                             <option value="">-- Pilih Program Studi --</option>
