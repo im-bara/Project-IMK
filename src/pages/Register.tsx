@@ -62,38 +62,44 @@ export default function Register() {
                         ))}
                     </div>
                 )}
-
+                <div className="text-black"> Username :
                 <input
                     type="text"
                     placeholder="4-8 Huruf & Angka"
-                    className="input placeholder:italic input-bordered w-full mb-4"
+                    className="input placeholder:italic input-bordered w-full mb-4 text-white"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
-
+                </div>
+                <div className="text-black"> Email :
                 <input
                     type="email"
                     placeholder="example@gmail.com"
-                    className="input input-bordered w-full mb-4 placeholder:italic"
+                    className="input text-white input-bordered w-full mb-4 placeholder:italic"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
+                </div>
 
+                <div className="text-black"> Password :
                 <input
                     type="password"
                     placeholder="8-32 Huruf, Angka, Special Character"
-                    className="placeholder italic input input-bordered w-full mb-4"
+                    className="placeholder text-white italic input input-bordered w-full mb-4"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                </div>
 
+                <div className="text-black">Confirm Password :
                 <input
                     type="password"
                     placeholder="Password Harus Sama"
-                    className="placeholder:italic input input-bordered w-full mb-4"
+                    className="text-white placeholder:italic input input-bordered w-full mb-4"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+                </div>
 
                 <label className="label cursor-pointer mb-4 items-start">
                     <input
