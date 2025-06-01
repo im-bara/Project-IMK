@@ -2,12 +2,19 @@
 
 
 Ini Repo buat **Project Tugas Iteraksi Manusia dan Komputer (IMK)**
+
 Dibuat pake:
+
 1.React
+
 2.Vite
+
 3.TailwindCSS
+
 4.DaisyUI
+
 5.Framer Motion
+
 6.TypeScript (Istri Gweh)
 
 KALO PENGEN CLONE AJA COY, Biar Tugas Lo Bisa kelar Satset Satset
