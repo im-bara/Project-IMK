@@ -1,5 +1,8 @@
 # FORK/CLONE Buat tugas IMK
 
+[![MIT License](https://img.shields.io/badge/license-MIT-red.svg)](./LICENSE)
+[![Open Source Mahasiswa](https://img.shields.io/badge/Open%20Source-Mahasiswa-informational)](https://github.com/im-bara/Project-IMK)
+
 
 Ini Repo buat **Project Tugas Iteraksi Manusia dan Komputer (IMK)**
 
