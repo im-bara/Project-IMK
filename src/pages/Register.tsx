@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 export default function Register() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -50,9 +48,8 @@ export default function Register() {
 
     return (
         <div className="min-h-screen flex flex-col bg-base-100 justify-between">
-            <Navbar/>
-            <main className="flex-grow flex-col flex justify-center items-center px-4">
-            <div className="w-full max-w-md p-10 shadow-xl bg-gray-700 rounded-lg">
+            <main className="flex-grow bg-gray-200 flex-col flex justify-center items-center px-4">
+            <div className="w-full max-w-md p-10 shadow-xl bg-gray-400 rounded-lg">
                 <h1 className="text-2xl font-bold mb-6 text-center text-black">Register</h1>
                     <h2 className="text-1xl font-underline mb-3 text-center text-black">Buat Akun Mahasiswa</h2>
 
@@ -108,21 +105,21 @@ export default function Register() {
                     <span className="label-text text-black">
                         Saya setuju dengan{" "}
                         <span
-                            className="text-primary underline cursor-pointer text-cyan-400"
+                            className="text-primary underline cursor-pointer text-cyan-500"
                             onClick={() => setShowTerms(true)}
                         >
                             syarat dan ketentuan
                         </span>
                     </span>
                 </label>
-
-                <button className="btn w-full bg-blue-400 hover:bg-blue-600 text-black hover:font-bold" onClick={handleRegister}>
+                
+                <button className="rounded-full btn w-full bg-blue-400 hover:bg-blue-600 hover:outline text-black hover:font-bold hover:" onClick={handleRegister}>
                     Register
                 </button>
 
                 <p className="text-black text-center text-sm mt-4">
                     Already have an Account ? {" "}
-                    <Link to="/login" className="text-primary text-cyan-400 hover:underline">
+                    <Link to="/login" className="text-primary text-cyan-500 hover:underline">
                         Login
                     </Link>
                 </p>
@@ -145,7 +142,6 @@ export default function Register() {
                 )}
             </div>
             </main>
-            <Footer />
         </div>
     );
 }

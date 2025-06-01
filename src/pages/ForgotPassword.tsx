@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
 
 export default function ForgotPassword() {
   const [input, setInput] = useState("");
@@ -33,10 +32,9 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <Navbar />
-      <div className="min-h-screen flex flex-col items-center justify-center px-4">
-        <div className="bg-gray-600 p-8 rounded-lg shadow-lg max-w-md w-full">
-          <h2 className="text-3xl font-semibold text-center mb-2">Forgot Password</h2>
+      <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center px-4">
+        <div className="bg-gray-400 p-8 rounded-lg shadow-lg max-w-md w-full">
+          <h2 className="text-3xl font-semibold text-center mb-2 text-black ">Forgot Password</h2>
           <p className="text-center text-black mb-6">Reset akses akunmu</p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -61,7 +59,7 @@ export default function ForgotPassword() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 text-white py-2 rounded-full shadow-md transition-all"
+              className="w-full bg-blue-400 hover:bg-blue-600 text-black hover:font-bold py-2 rounded shadow transition-all rounded-full hover:outline"
             >
               Kirim Link Reset
             </button>
@@ -69,13 +67,12 @@ export default function ForgotPassword() {
 
           <div className="text-center mt-4 text-sm text-black">
             Already have an Account ? {" "}
-            <button onClick={() => navigate("/login")} className="text-cyan-400 hover:underline">
+            <button onClick={() => navigate("/login")} className="text-blue-500 hover:underline">
               Login
             </button>
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

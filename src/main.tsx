@@ -1,12 +1,11 @@
-import { createRoot } from 'react-dom/client'
+import { createRoot } from "react-dom/client"
 import './index.css'
-import App from './App.tsx'
-import "@fontsource/inter";
-import { BrowserRouter } from 'react-router-dom';
-
+import App from "./App"
+import { BrowserRouter } from "react-router-dom"
+import "@fontsource/inter"
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter basename='/HalamanUtama/'>
+  <BrowserRouter basename="/Project-IMK/">
     <App />
-  </BrowserRouter>  ,
+  </BrowserRouter>
 )

@@ -1,7 +1,5 @@
 import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const LoginForm = () => {
@@ -40,14 +38,13 @@ const LoginForm = () => {
 
     return ( 
         <div className="flex flex-col min-h-screen justify-between">
-            <Navbar  />
-            <div className="flex flex-col items-center justify-center flex-grow py-10 px-4">
-                <h2 className="text-3xl font-semibold mb-1 text-center">Login</h2>
-                <p className="mb-6 text-sm text-center">Masuk ke akun mahasiswa</p>
+            <div className="flex flex-col items-center justify-center flex-grow py-10 bg-gray-200 px-4">
+                <h2 className="text-3xl text-black font-semibold mb-1 text-center">Login</h2>
+                <p className="mb-6 text-sm text-black  text-center">Masuk ke akun mahasiswa</p>
 
                 < form
                     onSubmit={handleSubmit}
-                    className="bg-gray-700 p-6 rounded-md shadow-md w-full max-w-md">
+                    className="bg-gray-400 p-6 rounded-md shadow-md w-full max-w-md">
                         <div className="mb-4">
                             <label className="text-black block text-sm font-medium">Email or Username :</label>
                             <input 
@@ -77,7 +74,7 @@ const LoginForm = () => {
                         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 
                         <div className="flex justify-between items-center mb-4 text-sm">
-                            <label className="inline-flex items-center">
+                            <label className="inline-flex text-black items-center">
                                 <input 
                                     type="checkbox"
                                     name="remember"
@@ -87,28 +84,28 @@ const LoginForm = () => {
                                 />
                                 Remember me
                             </label>
-                            <a href="/ForgotPassword" className="text-cyan-400 hover:underline hover:">
+                            <Link to="/ForgotPassword" className="text-blue-600 hover:underline">
                                 Forgot Password?
-                            </a>
+                            </Link>
 
                         </div>
 
                         <button
                             type="submit"
-                            className="w-full bg-blue-400 hover:bg-blue-600 text-black hover:font-bold py-2 rounded shadow"
+                            className="w-full bg-blue-400 hover:bg-blue-600 text-black hover:font-bold py-2 rounded-full shadow"
                         >
                             Login
                         </button>
                         
                         <p className="mt-4 text-black text-sm text-center">
                             don't have an account ? {" "}
-                            <a href="/register" className="text-cyan-400 hover:underline">
+                                <Link to="/register" className="text-blue-600 hover:underline">
                                 Register
-                            </a>
+                            </Link>
+                            
                         </p>
                 </form>
             </div>
-            <Footer />
         </div>
     );
 };
