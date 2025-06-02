@@ -1,6 +1,9 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function dashboard() {
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         nim: "",
         nama: "",
@@ -27,6 +30,14 @@ export default function dashboard() {
         <>
          <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center px-4 py-10">
             <div className="bg-gray-400 p-8 rounded-lg w-full max-w-2xl">
+                <motion.button
+                         whileHover={{scale: 1.05}}
+                        whileTap={{scale:0.99}}
+                    onClick={() => navigate(-1)}
+                    className="bg-blue-400 hover:outline flex flex-col shadow-none text-black hover:bg-blue-600 left-4 btn btn-sm btn-outlint"
+                    >
+                    ⬅
+                </motion.button>
                 <h2 className="text-3xl font-bold text-center text-black mb-1">Data Mahasiswa</h2>
                 <p className="text-center mb-6 text-black">
                     Form Mahasiswa
@@ -128,7 +139,7 @@ export default function dashboard() {
                             className="w-full border p-rounded text-white"
                                                 
                         >
-                            <option value="">-- Pilih Agama --</option>
+                            <option value="" className="text-center">-- Pilih Agama --</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
                             <option value="Katolik">Katolik</option>
@@ -148,7 +159,7 @@ export default function dashboard() {
                             className="w-full border p-rounded text-white"
                                                 
                         >
-                            <option value="">-- Pilih Program Studi --</option>
+                            <option value="" className="text-center">-- Pilih Program Studi --</option>
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="PGSD">Pendidikan Guru Sekolah Dasar</option>
                             <option value="Sistem Informasi">Sistem Informasi</option>
@@ -165,13 +176,15 @@ export default function dashboard() {
                         </select>
                     </div>
 
-
-                    <button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded"
-            >
+                    <motion.button
+                        type="submit"
+                        whileHover={{scale: 1.050}}
+                        whileTap={{scale: 0.99}}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-black rounded-full text-black hover:outline font-semibold py-2"
+                    >
               Simpan Data
-            </button>
+            
+            </motion.button>
                 </form>
 
 

@@ -40,7 +40,7 @@ export default function HalamanUtama() {
                             Sudah punya akun? login untuk mengakses layanan atau dashbord kampus.
                         </p>
                         <motion.button whileTap={{scale: 0.99}}>
-                        <Link to="/login" className="btn bg-blue-400 btn-primary w-full">Login Sekarang</Link>
+                        <Link to="/login" className="btn bg-blue-400 text-black btn-primary w-full">Login Sekarang</Link>
                         </motion.button>
                     </div>
                     </motion.div>
@@ -55,7 +55,7 @@ export default function HalamanUtama() {
                             Daftar sebagai mahasiswa gak nyata baru di Universitas Independen Nasional
                         </p>
                         <motion.button whileTap={{scale: 0.99}}>
-                        <Link to="/register" className="btn btn-accent w-full">Daftar Sekarang</Link>
+                        <Link to="/register" className="btn btn-accent bg-sky-300 text-black w-full">Daftar Sekarang</Link>
                         </motion.button>
                     </div>
                     </motion.div>

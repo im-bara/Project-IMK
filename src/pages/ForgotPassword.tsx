@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -57,12 +58,14 @@ export default function ForgotPassword() {
               )}
             </div>
 
-            <button
+            <motion.button
+              whileHover={{scale:1.05}}
+              whileTap={{scale:0.99}}
               type="submit"
               className="w-full bg-blue-400 hover:bg-blue-600 text-black hover:font-bold py-2 rounded shadow transition-all rounded-full hover:outline"
             >
               Kirim Link Reset
-            </button>
+            </motion.button>
           </form>
 
           <div className="text-center mt-4 text-sm text-black">

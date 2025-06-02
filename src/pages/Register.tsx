@@ -1,6 +1,14 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
+
+
 export default function Register() {
+    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -11,7 +19,10 @@ export default function Register() {
 
     const validateForm = () => {
         const errs = [];
-        if (username.length > 8 || username.length < 4 || !username || username.toLowerCase() === "admin") errs.push("Username tidak valid");
+        if (username.toLowerCase() === "admin") errs.push("Username tidak valid");
+        if (!/\d/.test(username)) errs.push("Username Harus mengandung 1 Angka");
+        if (username.length < 4) errs.push("Username Minimal 4 Huruf & Angka");
+        if (!username) errs.push("Username tidak boleh kosong");
         if (!email.includes("@")) errs.push("Email tidak valid");
         if (password.length < 8) errs.push("Password terlalu pendek");
         if (!/\d/.test(password)) errs.push("Password harus mengandung minimal 1 angka");
@@ -50,6 +61,14 @@ export default function Register() {
         <div className="min-h-screen flex flex-col bg-base-100 justify-between">
             <main className="flex-grow bg-gray-200 flex-col flex justify-center items-center px-4">
             <div className="w-full max-w-md p-10 shadow-xl bg-gray-400 rounded-lg">
+                <motion.button
+                    whileHover={{scale: 1.05}}
+                    whileTap={{scale:0.99}}
+                    onClick={() => navigate(-1)}
+                    className="bg-blue-400 hover:outline flex flex-col shadow-none text-black hover:bg-blue-600 left-4 btn btn-sm btn-outlint"
+                >
+                    ⬅
+                </motion.button>
                 <h1 className="text-2xl font-bold mb-6 text-center text-black">Register</h1>
                     <h2 className="text-1xl font-underline mb-3 text-center text-black">Buat Akun Mahasiswa</h2>
 
@@ -65,7 +84,7 @@ export default function Register() {
                 <div className="text-black"> Username :
                 <input
                     type="text"
-                    placeholder="4-8 Huruf & Angka"
+                    placeholder="Minimal 4 huruf & angka"
                     className="input placeholder:italic input-bordered w-full mb-4 text-white"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
@@ -81,25 +100,53 @@ export default function Register() {
                 />
                 </div>
 
-                <div className="text-black"> Password :
-                <input
-                    type="password"
-                    placeholder="8-32 Huruf, Angka, Special Character"
-                    className="placeholder text-white italic input input-bordered w-full mb-4"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+                <div className="text-black mb-4"> Password :
+                 <div className="relative">
+                    <input
+                     type={showPassword ? "text" : "password"}
+                      placeholder="8-32 Huruf, Angka, Special Character"
+                       className="placeholder:italic text-white input input-bordered w-full pr-10 focus:outline-none"
+                     value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                         />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-3 top-1/2 transform -translate-y-1/2 z-10"
+                                >
+                                {showPassword ? (
+                            <EyeSlashIcon className="h-5 w-5 text-gray-500" />
+                            ) : (
+                        <EyeIcon className="h-5 w-5 text-gray-500" />
+                     )}
+                    </button>
+                 </div>
+            </div>
+
+
+                <div className="text-black mb-4"> Confirm Password :
+                    <div className="relative">
+                         <input
+                            type={showConfirmPassword ? "text" : "password"}
+                            placeholder="Password Harus Sama"
+                            className="placeholder:italic text-white input input-bordered w-full pr-10"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                         <button
+                            type="button"
+                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                          className="absolute right-3 top-1/2 transform -translate-y-1/2 z-10"
+                        >
+                            {showConfirmPassword ? (
+                          <EyeSlashIcon className="h-5 w-5 text-gray-500" />
+                         ) : (
+                      <EyeIcon className="h-5 w-5 text-gray-500" />
+                     )}
+           </button>
+                  </div>
                 </div>
 
-                <div className="text-black">Confirm Password :
-                <input
-                    type="password"
-                    placeholder="Password Harus Sama"
-                    className="text-white placeholder:italic input input-bordered w-full mb-4"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-                </div>
 
                 <label className="label cursor-pointer mb-4 items-start">
                     <input
@@ -108,10 +155,10 @@ export default function Register() {
                         checked={termsAccepted}
                         onChange={() => setTermsAccepted(!termsAccepted)}
                     />
-                    <span className="label-text text-black">
+                    <span className="block w-full text-sm sm:text-base leading-tight label-text text-black break-words">
                         Saya setuju dengan{" "}
                         <span
-                            className="text-primary underline cursor-pointer text-cyan-500"
+                            className="text-primary text-sm sm:text-base leading-tight underline cursor-pointer text-cyan-500"
                             onClick={() => setShowTerms(true)}
                         >
                             syarat dan ketentuan
@@ -119,9 +166,13 @@ export default function Register() {
                     </span>
                 </label>
                 
-                <button className="rounded-full btn w-full bg-blue-400 hover:bg-blue-600 hover:outline text-black hover:font-bold hover:" onClick={handleRegister}>
+                <motion.button
+                    whileHover={{scale: 1.05}}
+                    whileTap={{scale:0.99}}
+                    type="submit"                
+                    className="rounded-full btn w-full bg-blue-400 hover:bg-blue-600 hover:outline text-black hover:font-bold" onClick={handleRegister}>
                     Register
-                </button>
+                </motion.button>
 
                 <p className="text-black text-center text-sm mt-4">
                     Already have an Account ? {" "}
@@ -137,12 +188,14 @@ export default function Register() {
                             <p className="text-sm text-black mb-6">
                                 Dengan menggunakan layanan ini, Anda setuju bahwa data anda akan dibobol oleh kami di localStorage hanya untuk keperluan demo dan presentasi.
                             </p>
-                            <button
-                                className="btn btn-primary w-full text-white"
+                            <motion.button
+                                whileHover={{scale: 1.025}}
+                                whileTap={{scale: 0.99}}
+                                className="btn btn-primary w-full text-white rounded-full hover:outline"
                                 onClick={() => setShowTerms(false)}
                             >
                                 Sudah Dibaca / Selesai
-                            </button>
+                            </motion.button>
                         </div>
                     </div>
                 )}
