@@ -97,10 +97,10 @@ export default function dashboard() {
                         <label className="block mb-1 text-black">Tanggal Lahir :</label>
                         <input 
                             type="date"
-                            name="tempatLahir"
-                            value={form.tempatLahir}
+                            name="tanggalLahir"
+                            value={form.tanggalLahir}
                             onChange={handleChange}
-                            className="w-full border italic p-2 rounded text-white"
+                            className="w-full border p-2 rounded text-white"
                             placeholder=""
                         />
                     </div>
