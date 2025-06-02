@@ -40,7 +40,7 @@ export default function dashboard() {
                             value={form.nim}
                             onChange={handleChange}
                             placeholder="Masukan NIM (10 Digit)"
-                            className="w-full border p-2 rounded text-italic" />
+                            className="w-full border p-2 rounded placeholder:italic" />
                     </div>
 
                     <div>
@@ -51,7 +51,7 @@ export default function dashboard() {
                             value={form.nama}
                             onChange={handleChange}
                             placeholder="Masukan Nama lengkap sesuai dengan KTP"
-                            className="w-full border p-2 rounded text-white text italic"
+                            className="w-full border p-2 rounded text-white text placeholder:italic"
                         />
                     </div>
 
@@ -88,7 +88,8 @@ export default function dashboard() {
                             name="tempatLahir"
                             value={form.tempatLahir}
                             onChange={handleChange}
-                            className="w-full border p-2 rounded text-white"
+                            className="w-full border p-2 rounded text-white placeholder:italic"
+                            placeholder="Jl. Letkol Udin, RT 06/RW 20, Kel. Cireong, Kota Jakarta Timur Laut"
                         />
                     </div>
 
@@ -99,7 +100,8 @@ export default function dashboard() {
                             name="tempatLahir"
                             value={form.tempatLahir}
                             onChange={handleChange}
-                            className="w-full border p-2 rounded text-white"
+                            className="w-full border italic p-2 rounded text-white"
+                            placeholder=""
                         />
                     </div>
 
@@ -109,7 +111,8 @@ export default function dashboard() {
                             name="alamat"
                             value={form.alamat}
                             onChange={handleChange}
-                            className="w-full border p-2 rounded"
+                            className="w-full placeholder:italic border text-white p-2 rounded"
+                            placeholder="Jl. Haji Rambutan, Gg. UsusKrispi, Kota Meikarta, Provinsi Jawa Selatan"
                         
                         ></textarea>
 
@@ -132,7 +135,6 @@ export default function dashboard() {
                             <option value="Hindu">Hindu</option>
                             <option value="Buddha">Buddha</option>
                             <option value="Konghucu">Konghucu</option>
-                            <option value="Jawa">JAWA JAWA JAWA</option>
 
                         </select>
                     </div>
@@ -148,13 +150,17 @@ export default function dashboard() {
                         >
                             <option value="">-- Pilih Program Studi --</option>
                             <option value="Teknik Informatika">Teknik Informatika</option>
-                            <option value="Sastra Mesin">Sastra Mesin</option>
                             <option value="PGSD">Pendidikan Guru Sekolah Dasar</option>
                             <option value="Sistem Informasi">Sistem Informasi</option>
-                            <option value="Sastra Bangunan">Sastra Bangunan</option>
                             <option value="Manajemen">Manajemen</option>
                             <option value="Hukum">Hukum</option>
-                            <option value="Racism">Racism</option>
+                            <option value="HI">Hubungan Internasional</option>
+                            <option value="Farmasi">Farmasi</option>
+                            <option value="Kedokteran">Kedokteran</option>
+                            <option value="Kehutanan">Kehutanan</option>
+                            <option value="Fisika">Fisika Murni</option>
+                            <option value="Kimia">Kimia Murni</option>
+                            <option value="Geologi">Geologi</option>
 
                         </select>
                     </div>
