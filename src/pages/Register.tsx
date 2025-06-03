@@ -103,7 +103,7 @@ export default function Register() {
                 <div className="text-black mb-4"> Password :
                  <div className="relative">
                     <input
-                     type={showPassword ? "text" : "password"}
+                     type={showPassword ? "password" : "text"}
                       placeholder="8-32 Huruf, Angka, Special Character"
                        className="placeholder:italic text-white input input-bordered w-full pr-10 focus:outline-none"
                      value={password}
@@ -127,7 +127,7 @@ export default function Register() {
                 <div className="text-black mb-4"> Confirm Password :
                     <div className="relative">
                          <input
-                            type={showConfirmPassword ? "text" : "password"}
+                            type={showConfirmPassword ? "password" : "text"}
                             placeholder="Password Harus Sama"
                             className="placeholder:italic text-white input input-bordered w-full pr-10"
                             value={confirmPassword}

@@ -73,7 +73,7 @@ const LoginForm = () => {
                             <label className="text-black block text-sm font-medium">Password :</label>
                              <div className="relative">
                               <input
-                                    type={showPassword ? "text" : "password"}
+                                    type={showPassword ? "password" : "text"}
                                     name="password"
                                     value={formData.password}
                                     onChange={handleChange}
