@@ -3,9 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 export default function Navbar() {
   const location = useLocation();
   const currentPath = location.pathname;
-  
-
-  // Hide button based on current route
   const isOnLoginPage = currentPath === "/login";
   const isOnRegisterPage = currentPath === "/register";
   const isOnHomePage = currentPath === "/";
@@ -18,7 +15,7 @@ export default function Navbar() {
       <div className="flex-1">
         <Link
           to="/"
-          className="text-xl font-bold btn text-white bg-ungu-500 rounded-full px-4 py-2 hover:bg-opacity-80 transition"
+          className="text-xl font-bold btn text-white bg-ungu-500 rounded-full px-4 py-2 transition"
         >
           UIN
         </Link>

@@ -75,9 +75,9 @@ export default function HalamanUtama() {
     className="absolute right-3 top-[3rem] transform -translate-y-1/2 z-10"
   >
     {showPassword ? (
-      <EyeSlashIcon className="h-5 w-5 text-gray-500 transition duration-200" />
-    ) : (
       <EyeIcon className="h-5 w-5 text-gray-500 transition duration-200" />
+    ) : (
+      <EyeSlashIcon className="h-5 w-5 text-gray-500 transition duration-200" />
     )}
   </button>
 </div>
