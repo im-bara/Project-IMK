@@ -6,7 +6,6 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Dashboard from './pages/Dashboard';
-import FloatingChatbot from './components/FloatingChatBot';
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
           
         </Routes>
       </main>
-      <FloatingChatbot />
 
 
       <Footer />

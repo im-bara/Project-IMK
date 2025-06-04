@@ -1,67 +1,110 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+
 export default function HalamanUtama() {
-    return (
-        <div className="min-h-screen flex flex-col bg-gray-200 text-base-content font-sans">
-            <motion.main initial={{ opacity: 0}} animate={{ opacity:1}} transition={{type:"tween", duration: 1.2}}>
-            <main className=" flex-1 flex flex-col items-center justify-center text-center px-4 py-16 md:py-24">
-                <h1 className="text-4xl text-black md:text-6xl font-extrabold mb-4 leading-tight">
-                    Selamat Datang di <span className="text-primary">Universitas Independen Nasional</span>
-                </h1>
-                <p className="text-base text-black sm:text-lg md:text-xl max-w-2xl mb-8">
-                    Universitas Independen Nasional (UIN) adalah kampus keren modern yang tidak nyata, memadukan ilusi,
-                    inovasi dan kemandirian. Kami berkomitmen mencetak generasi tidak nyata memalui pendekatan pembelajaran
-                    Digital dan Ghoib.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                    <motion.div whileHover={{scale:1.125}} whileTap={{scale:0.95}} transition={{ type:"spring", stiffness: 200, damping: 15}}>
-                    <Link to="/register" className="btn btn-primary w-full bg-gray-500 text-black sm:w-auto">
-                    Daftar Sekarang
-                    </Link>
-                    </motion.div>
-                    <motion.div whileHover={{scale:1.125}} whileTap={{scale:0.95}} transition={{ type:"spring", stiffness: 300}}> 
-                    <Link to="/login" className="btn btn-outline bg-blue-400 text-black btn-primary w-full sm:w-auto hover:bg-blue-700 hover:text-black hover:outline">
-                    Login
-                    </Link>
-                    </motion.div>
-                </div>
-            </main>
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
-            {/*Section lainnya jir*/}
-            <section className="px-4 py-12 bg-gray-300">
-                <div className="max-w-6xl mx-auto grid gap-8 md:grid-cols-2">
-                    {/*Login ini ya cok*/}
-                    <motion.div initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                            transition={{ type: "tween", duration: 2.3, ease: "easeOut" }}>
-                    <div className="card bg-base-100 shadow-lg p-6">
-                        <h2 className="text-2xl font-bold mb-2">Login</h2>
-                        <p className="mb-4 text-sm md:text-base">
-                            Sudah punya akun? login untuk mengakses layanan atau dashbord kampus.
-                        </p>
-                        <motion.button whileTap={{scale: 0.99}}>
-                        <Link to="/login" className="btn bg-blue-400 text-black btn-primary w-full">Login Sekarang</Link>
-                        </motion.button>
-                    </div>
-                    </motion.div>
-                    {/*preview register */}
 
-                    <motion.div initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                            transition={{ type: "tween", duration: 2.3, ease: "easeOut" }}>
-                    <div className="card bg-base-100 shadow-lg p-6">
-                        <h2 className="text-2xl font-bold mb-2">Registrasi</h2>
-                        <p className="mb-4 text-sm md:text-base">
-                            Daftar sebagai mahasiswa gak nyata baru di Universitas Independen Nasional
-                        </p>
-                        <motion.button whileTap={{scale: 0.99}}>
-                        <Link to="/register" className="btn btn-accent bg-sky-300 text-black w-full">Daftar Sekarang</Link>
-                        </motion.button>
-                    </div>
-                    </motion.div>
-                </div>
-            </section>
-            </motion.main>
-        </div>
-    )
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleLogin = () => {
+    const userList = JSON.parse(localStorage.getItem("users") || "[]");
+
+    const foundUser = userList.find(
+      (u: any) => u.email === email && u.password === password
+    );
+
+    if (foundUser) {
+      localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+      navigate("/dashboard");
+    } else {
+      setErrorMsg("Email atau password salah. Silahkan coba lagi.");
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gray-200 text-base-content font-sans">
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "tween", duration: 1.2 }}
+      >
+        <main className="flex-1 bg-ungu-100 flex flex-col items-center justify-center text-center px-4 py-16 md:py-24">
+          <h1 className="text-4xl text-black md:text-6xl font-extrabold mb-4 leading-tight">
+            Selamat Datang di{" "}
+            <span className="text-ungu-25">Universitas Independen Nasional</span>
+          </h1>
+          <p className="text-base text-black sm:text-lg md:text-xl max-w-2xl mb-8">
+            Universitas Independen Nasional (UIN) adalah kampus keren modern yang
+            tidak nyata, memadukan ilusi, inovasi, dan kemandirian. Kami berkomitmen
+            mencetak generasi tidak nyata melalui pendekatan pembelajaran Digital dan Ghoib.
+          </p>
+
+          {/* LOGIN + REGISTER CARD */}
+          <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md text-left space-y-4">            {errorMsg && (
+              <div className="text-red-500 text-sm bg-red-100 rounded p-2">{errorMsg}</div>
+            )}
+
+            <div>
+              <label className="text-black font-semibold block mb-1">Email :</label>
+              <input
+                type="email"
+                placeholder="Masukkan email kamu"
+                className="input text-white input-bordered w-full text-black"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="relative">
+  <label className="text-black font-semibold block mb-1">Password :</label>
+  <input
+    type={showPassword ? "text" : "password"} 
+    placeholder="Masukkan password kamu"
+    className="input input-bordered w-full text-white pr-10"
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+  />
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute right-3 top-[3rem] transform -translate-y-1/2 z-10"
+  >
+    {showPassword ? (
+      <EyeSlashIcon className="h-5 w-5 text-gray-500 transition duration-200" />
+    ) : (
+      <EyeIcon className="h-5 w-5 text-gray-500 transition duration-200" />
+    )}
+  </button>
+</div>
+
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={handleLogin}
+              className="btn w-full text-black rounded-full bg-kuning"
+            >
+              Login
+            </motion.button>
+
+            <p className="text-black text-sm text-center">
+              Belum punya akun?{" "}
+              <span
+                className="text-blue-500 underline cursor-pointer"
+                onClick={() => navigate("/register")}
+              >
+                Daftar Sekarang
+              </span>
+            </p>
+          </div>
+        </main>
+      </motion.main>
+    </div>
+  );
 }

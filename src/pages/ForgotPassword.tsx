@@ -33,8 +33,8 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-200 flex flex-col items-center justify-center px-4">
-        <div className="bg-gray-400 p-8 rounded-lg shadow-lg max-w-md w-full">
+      <div className="min-h-screen bg-ungu-100 flex flex-col items-center justify-center px-4">
+        <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
           <h2 className="text-3xl font-semibold text-center mb-2 text-black ">Forgot Password</h2>
           <p className="text-center text-black mb-6">Reset akses akunmu</p>
 
@@ -62,7 +62,7 @@ export default function ForgotPassword() {
               whileHover={{scale:1.05}}
               whileTap={{scale:0.99}}
               type="submit"
-              className="w-full bg-blue-400 hover:bg-blue-600 text-black hover:font-bold py-2 rounded shadow transition-all rounded-full hover:outline"
+              className="w-full bg-kuning btn text-black hover:font-bold py-2 rounded shadow transition-all rounded-full hover:outline"
             >
               Kirim Link Reset
             </motion.button>
