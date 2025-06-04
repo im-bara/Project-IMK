@@ -218,7 +218,7 @@ export default function Register() {
                                 <motion.button
                                     whileHover={{ scale: 1.025 }}
                                     whileTap={{ scale: 0.99 }}
-                                    className="btn w-full bg-green-400 text-black rounded-full"
+                                    className="btn w-full bg-kuning text-black rounded-full"
                                     onClick={() => setShowTerms(false)}
                                 >
                                     Sudah Dibaca / Selesai
