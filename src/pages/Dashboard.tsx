@@ -54,7 +54,7 @@ export default function Dashboard() {
                             name="alamat"
                             value={form.alamat}
                             onChange={handleChange}
-                            placeholder="Contoh: Jl. Haji Rambutan, Gg. UsusKrispi, Meikarta"
+                            placeholder="Contoh: Jl. Haji Rambutan, Gg. Ikan Bawal, Meikarta"
                             className="w-full border p-2 rounded placeholder:italic"
                         />
                     </div>

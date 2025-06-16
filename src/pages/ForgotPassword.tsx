@@ -69,9 +69,9 @@ export default function ForgotPassword() {
           </form>
 
           <div className="text-center mt-4 text-sm text-black">
-            Already have an Account ? {" "}
+            Sudah Memiliki Akun ? {" "}
             <button onClick={() => navigate("/login")} className="text-blue-500 hover:underline">
-              Login
+              Masuk
             </button>
           </div>
         </div>

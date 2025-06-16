@@ -134,7 +134,7 @@ const LoginForm = () => {
                         type="submit"
                         className="w-full btn bg-kuning text-black hover:font-bold py-2 rounded-full shadow"
                     >
-                        Login
+                        Masuk
                     </motion.button>
 
                     <p className="mt-4 text-black text-sm text-center">

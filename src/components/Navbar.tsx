@@ -34,14 +34,14 @@ export default function Navbar() {
           {!isOnRegisterPage && (
             <li>
               <Link to="/register" className={linkStyle}>
-                Register
+                Daftar
               </Link>
             </li>
           )}
           {!isOnLoginPage && (
             <li>
               <Link to="/login" className={linkStyle}>
-                Login
+                Masuk
               </Link>
             </li>
           )}

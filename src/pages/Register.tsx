@@ -109,7 +109,7 @@ export default function Register() {
                         <div className="relative">
                             <input
                                 type={showPassword ? "text" : "password"}
-                                placeholder="8-32 Huruf, Angka, Special Character"
+                                placeholder="8-32 Huruf, Angka, Karakter Spesial"
                                 className={`placeholder:italic text-white input input-bordered w-full pr-10 ${errors.password ? 'border-red-500' : ''}`}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -213,7 +213,7 @@ export default function Register() {
                             <div className="bg-white w-11/12 md:w-1/2 lg:w-1/3 rounded-lg p-6 shadow-xl relative">
                                 <h2 className="text-xl text-black font-bold mb-4">Syarat dan Ketentuan</h2>
                                 <p className="text-sm text-black mb-6">
-                                    Dengan menggunakan layanan ini, Anda setuju bahwa data anda akan dibobol oleh kami di localStorage hanya untuk keperluan demo dan presentasi.
+                                    Dengan menggunakan layanan ini, Anda setuju bahwa data anda akan disimpan Di localStorage oleh kami hanya untuk keperluan demo dan presentasi.
                                 </p>
                                 <motion.button
                                     whileHover={{ scale: 1.025 }}

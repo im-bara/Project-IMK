@@ -89,7 +89,7 @@ export default function HalamanUtama() {
               onClick={handleLogin}
               className="btn w-full text-black rounded-full bg-kuning"
             >
-              Login
+              Masuk
             </motion.button>
 
             <p className="text-black text-sm text-center">
