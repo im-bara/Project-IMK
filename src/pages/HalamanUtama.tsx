@@ -35,7 +35,7 @@ export default function HalamanUtama() {
       >
         <main className="flex-1 bg-ungu-100 flex flex-col items-center justify-center text-center px-4 py-16 md:py-24">
           <h1 className="text-4xl text-black md:text-6xl font-extrabold mb-4 leading-tight">
-            What Ups NIGGA {" "}
+            Selamat Datang di{" "}
             <span className="text-ungu-25">Universitas Independen Nasional</span>
           </h1>
           <p className="text-base text-black sm:text-lg md:text-xl max-w-2xl mb-8">
